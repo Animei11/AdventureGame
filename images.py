@@ -3,12 +3,6 @@ import time
 from graphics import *
 
 
-def close(pic):
-    pic.getMouse()
-    pic.close()
-    exit()
-
-
 # Formats all text the same
 def format_text(sentences):
     sentences = str(fill(sentences, 150))
@@ -24,7 +18,18 @@ def death_img():
     win2.setBackground('black')
     death = Image(Point(250, 250), "img/death.gif")
     death.draw(win2)
-    close(win2)
+    win2.getMouse()
+    win2.close()
+
+
+# Victory
+def victory_img():
+    win2 = GraphWin("Window2", 550, 550)
+    win2.setBackground('black')
+    victory = Image(Point(250, 250), "img/you_win.gif")
+    victory.draw(win2)
+    win2.getMouse()
+    win2.close()
 
 
 # Character Selection
@@ -279,7 +284,6 @@ def monster_img():
     monsterImg.draw(monsterWindow)
     monsterPrompt = Text(Point(250, 420), "A monster was guarding the entrance to the cave! \nWhat do you want to do?")
     monsterPrompt.setTextColor('white')
-    monsterPrompt.draw(monsterWindow)
     monsterWindow.getMouse()
     monsterWindow.close()
 
